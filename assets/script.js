@@ -165,3 +165,23 @@ var history = function () {
 
     }
 }
+
+// Clickable history blocks
+var buttonClickHandler = function (event) {
+    var cityname = event.target.getAttribute("data-city");
+    if (cityname) {
+        getWeatherInfo(cityname);
+    }
+}
+
+// Clear Search History
+var clearHistory = function (event) {
+    localStorage.removeItem("weatherSearch");
+    historyBoxEl.setAttribute("style", "display: none");
+}
+
+//Event Listeners
+
+cityFormEl.addEventListener("submit", formSubmitHandler);
+historyButtonsEl.addEventListener("click", buttonClickHandler);
+trashEl.addEventListener("click", clearHistory)();
