@@ -8,8 +8,8 @@ GIVEN a weather dashboard with form inputs WHEN I search for a city THEN I am pr
 
 Screenshot of Deployed Application:
 
-Screen Shot 2022-07-26 at 11 45 56 PM
+<img width="1427" alt="Screen Shot 2022-07-26 at 11 45 56 PM" src="https://user-images.githubusercontent.com/106893601/181678293-c8eb75b3-502a-4afd-9865-e21bed8d6b21.png">
+<img width="1409" alt="Screen Shot 2022-07-26 at 11 46 07 PM" src="https://user-images.githubusercontent.com/106893601/181678300-46dfcd8a-4137-467f-b630-5fbca1b2a0eb.png">
+<img width="1393" alt="Screen Shot 2022-07-26 at 11 46 15 PM" src="https://user-images.githubusercontent.com/106893601/181678307-d95c9452-fa56-4b18-8f7a-2fea4d66c5cc.png">
 
-Screen Shot 2022-07-26 at 11 46 07 PM
-
-Screen Shot 2022-07-26 at 11 46 15 PM
+Link to Deployed URL: https://hannamarcus.github.io/weather-dashboard-API/
