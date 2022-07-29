@@ -84,3 +84,66 @@ var formSubmitHandler = function (event) {
     
             });
     };
+
+// Display the weather on page
+var displayWeather = function (weather) {
+    // Check to see if there's data for that input
+    if (weather.length === 0) {
+        weatherContainerEl.textContent = "No weather data found. Please try again later";
+        return;
+    }
+    // Temperature element
+    var temperature = document.createElement('p');
+    temperature.id = "temperature";
+    temperature.innerHTML = "<strong>Temperature:</strong> " + weather.current.temp.toFixed(1) + "°F";
+    currentWeatherEl.appendChild(temperature);
+
+    // Humidity element
+    var humidity = document.createElement('p');
+    humidity.id = "humidity";
+    humidity.innerHTML = "<strong>Humidity:</strong> " + weather.current.humidity + "%";
+    currentWeatherEl.appendChild(humidity);
+
+    // Wind Speed element
+    var windSpeed = document.createElement('p');
+    windSpeed.id = "wind-speed";
+    windSpeed.innerHTML = "<strong>Wind Speed:</strong> " + weather.current.wind_speed.toFixed(1) + " MPH";
+    currentWeatherEl.appendChild(windSpeed);
+
+    // UV-index elements with colors
+    var uvIndex = document.createElement('p');
+    var uvIndexValue = weather.current.uvi.toFixed(1);
+    uvIndex.id = "uv-index";
+    if (uvIndexValue >= 0) {
+        uvIndex.className = "uv-index-favorable"
+    }
+    if (uvIndexValue >= 3) {
+        uvIndex.className = "uv-index-moderate"
+    }
+    if (uvIndexValue >= 8) {
+        uvIndex.className = "uv-index-severe"
+    }
+    uvIndex.innerHTML = "<strong>UV Index:</strong> <span>" + uvIndexValue + "</span>";
+    currentWeatherEl.appendChild(uvIndex);
+
+    // Extended forecast data
+    var forecastArray = weather.daily;
+
+    // Dday boxes for extended forecast
+    for (let i = 0; i < forecastArray.length - 3; i++) {
+        var date = (today.getMonth() + 1) + '/' + (today.getDate() + i + 1) + '/' + today.getFullYear();
+        var weatherIcon = forecastArray[i].weather[0].icon;
+        var weatherDescription = forecastArray[i].weather[0].description;
+        var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />"
+        var dayEl = document.createElement("div");
+        dayEl.className = "day";
+        dayEl.innerHTML = "<p><strong>" + date + "</strong></p>" +
+            "<p>" + weatherIconLink + "</p>" +
+            "<p><strong>Temp:</strong> " + forecastArray[i].temp.day.toFixed(1) + "°F</p>" +
+            "<p><strong>Humidity:</strong> " + forecastArray[i].humidity + "%</p>"
+
+        fiveDayEl.appendChild(dayEl);
+
+    }
+
+}
