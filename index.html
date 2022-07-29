@@ -20,6 +20,59 @@
     <h1 class="site-title"></i> Weather Dashboard</h1>
   </header>
 
+    <!-- Search Box -->
+    <main class="flex-row justify-space-between">
+        <div class="flex-row justify-space-between col-12">
+          <div class="col-12 col-md-4">
+    
+            <div class="box">
+              <h3 class="box-header text-uppercase">To get started, type in a city Name.</h3>
+              <form id="city-form" class="box-body">
+                <label class="form-lable" for="cityname">City Name</label>
+                <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+                <button type="submit" class="btn">What's the Weather?</button>
+              </form>
+            </div>
+          </div>
+    
+          <!-- Current Weather Box -->
+          <div class="col-12 col-md-8">
+            <div class="box hidden" id="current-weather-box">
+              <h2 class="box-header" id="weather-status"></h2>
+              <div class="box-body" id="current-weather">
+    
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Search History -->
+        <div class="flex-row justify-space-between col-12">
+          <div class="col-12 col-md-4" id="search">
+            <div class="box" id="history" style="display: none;">
+              <h3 class="box-header text-uppercase">Search History <i id="trash" class='fas fa-trash'
+                  title='Clear History'></i>
+              </h3>
+              <div class="box-body" id="history-buttons">
+    
+              </div>
+    
+            </div>
+          </div>
+    
+          <!-- 5-Day Forecast -->
+          <div class="col-12 col-md-8">
+            <div class="box hidden" id="five-day-box">
+              <h2 class="box-header" id="five-day-head">Check Out the 5-Day Forecast</h2>
+              <div class="box-body flex-row justify-space-around" id="five-day-body">
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+
   <!-- Add script file -->
   <script src="Assets/script.js"></script>
 </body>
