@@ -147,3 +147,21 @@ var displayWeather = function (weather) {
     }
 
 }
+
+// Load past city weather searches
+var history = function () {
+    searchArray = JSON.parse(localStorage.getItem("weatherSearch"));
+
+    if (searchArray) {
+        searchHistoryArray = JSON.parse(localStorage.getItem("weatherSearch"));
+        for (let i = 0; i < searchArray.length; i++) {
+            var searchHistoryEl = document.createElement('button');
+            searchHistoryEl.className = "btn";
+            searchHistoryEl.setAttribute("data-city", searchArray[i])
+            searchHistoryEl.innerHTML = searchArray[i];
+            historyButtonsEl.appendChild(searchHistoryEl);
+            historyBoxEl.removeAttribute("style");
+        }
+
+    }
+}
